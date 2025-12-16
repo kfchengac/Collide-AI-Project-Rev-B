@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import Any, Dict, List
 try:
     import plotly.graph_objects as go
-except ImportError:  # optional dependency for visualization
+except ImportError:
     go = None
 
 class COLLIDEAdvisor:
