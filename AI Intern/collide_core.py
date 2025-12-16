@@ -1,6 +1,9 @@
 from __future__ import annotations
 from typing import Any, Dict, List
-import plotly.graph_objects as go
+try:
+    import plotly.graph_objects as go
+except ImportError:  # optional dependency for visualization
+    go = None
 
 class COLLIDEAdvisor:
     def __init__(self):
@@ -123,6 +126,9 @@ class COLLIDEAdvisor:
         }
 
     def visualize_brand_assessment(self, assessment: Dict) -> None:
+        if go is None:
+            print("Plotly is not installed; skipping visualization.")
+            return
         categories = ["Strategic Positioning", "Visual Identity", "Business Metrics", "Authenticity"]
         values = [
             assessment.get("strategic_positioning", 0),
