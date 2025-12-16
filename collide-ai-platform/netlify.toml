@@ -1,6 +1,8 @@
 [build]
   functions = "netlify/functions"
-  publish = "public"
+  base    = "docs"
+  publish = "_site"
+  command = "jekyll build"
   # Use a short debug build script so Netlify build logs show what the build container
   # actually sees. This is temporary — once things are working you can revert this
   # to a shorter command (for example: "python3 scripts/sync_static.py").
